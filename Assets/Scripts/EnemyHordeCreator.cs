@@ -5,17 +5,23 @@ using System.Globalization;
 
 public class EnemyHordeCreator : MonoBehaviour
 {
-    public string horde = "u-0,25-d-0,5";
+    public string horde;
     public char separationChar = '-';
     public bool creating = false;
     Coroutine monsterGenerationcoroutine;
     EnemyGenerator enemyGenerator;
+    SongListReader songlistReader;
 
     private void Start()
     {
         enemyGenerator = GetComponent<EnemyGenerator>();
+        songlistReader = GetComponent<SongListReader>();
     }
 
+    void Selectsong()
+    {
+        horde = songlistReader.SelectSong(0).notesEasy;
+    }
     IEnumerator GenerateMonsters()
     {
         (string enemyName, float timeToBorn) nextEncounter = RetrieveNextEnemy();
@@ -71,6 +77,7 @@ public class EnemyHordeCreator : MonoBehaviour
     {
         if (!creating)
         {
+            Selectsong();
             creating = true;
             monsterGenerationcoroutine = StartCoroutine(GenerateMonsters());
         }

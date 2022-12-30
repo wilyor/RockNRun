@@ -863,6 +863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionRadius: 0.54
   input: 273
+  distanceForPerfect: 0.2
 --- !u!212 &790589741
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1346,6 +1347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionRadius: 0.54
   input: 274
+  distanceForPerfect: 0.2
 --- !u!212 &1941423924
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1424,6 +1426,7 @@ GameObject:
   - component: {fileID: 2075959858}
   - component: {fileID: 2075959857}
   - component: {fileID: 2075959859}
+  - component: {fileID: 2075959860}
   m_Layer: 0
   m_Name: EnemyGenerator
   m_TagString: Untagged
@@ -1474,6 +1477,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7e3efab4b53f14aa9eb3109aee4a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horde: u-1-d-1,5- u-1,25-d-1,5-u-0,25-d-1,5- u-1,25-d-1,5-u-1,25-d-1,5- u-1,25-d-0,5
+  horde: 
   separationChar: 45
   creating: 0
+--- !u!114 &2075959860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075959856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b060869481c78742889aa2a6be6d33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songsFile: {fileID: 4900000, guid: b73bba0d9addc2f41b1e1f3fb14094aa, type: 3}
+  songList:
+    songList: []

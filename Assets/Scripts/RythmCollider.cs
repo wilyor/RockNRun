@@ -7,7 +7,7 @@ public class RythmCollider : MonoBehaviour
     public float collisionRadius;
     public KeyCode input;
     Animator anim;
-
+    public float distanceForPerfect = 0.5f;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -49,7 +49,16 @@ public class RythmCollider : MonoBehaviour
         Collider2D enemy = Physics2D.OverlapCircle(transform.position, collisionRadius);
         if (enemy)
         {
-            enemy.GetComponent<Enemy>().DestroyOnCollision(Accuracy.Perfect);
+            enemy.GetComponent<Enemy>().DestroyOnCollision(checkAccuracy(enemy.transform));
         }
+    }
+
+    public Accuracy checkAccuracy(Transform enemy)
+    {
+        if(Vector2.Distance(enemy.position, transform.position) <= distanceForPerfect)
+        {
+            return Accuracy.Perfect;
+        }
+        return Accuracy.Great;
     }
 }
